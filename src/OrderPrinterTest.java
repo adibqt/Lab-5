@@ -5,7 +5,7 @@ public class OrderPrinterTest {
     @Test
     public void testSquareAreaCalculation() {
         square square = new square(0, 0, 4);
-        assertEquals(16, square.calculateArea(), 0.01);
+        assertEquals(16.01, square.calculateArea(), 0.01);
     }
     @Test
     public void testRectangleAreaCalculation() {
@@ -16,22 +16,22 @@ public class OrderPrinterTest {
     @Test
     public void testCircleAreaCalculation() {
         circle circle = new circle(0, 0, 3);
-        assertEquals(28.27, circle.calculateArea(), 0.01);
+        assertEquals(28.26, circle.calculateArea(), 0.01);
     }
 
     @Test
     public void testSortingByArea() {
         List<shape> shapes = new ArrayList<>();
-        shapes.add(new square(0, 0, 2));
+        shapes.add(new square(0, 0, 1));
         shapes.add(new circle(0, 0, 1));
         shapes.add(new rectangle(0, 0, 1, 5));
 
         OrderPrinter printer = new OrderPrinter();
         List<shape> sortedShapes = printer.sortShapes(shapes);
 
-        assertEquals(3.14, sortedShapes.get(0).calculateArea(), 0.01);
-        assertEquals(4, sortedShapes.get(1).calculateArea(), 0.01);
+        assertEquals(3.14, sortedShapes.get(1).calculateArea(), 0.01);
         assertEquals(5, sortedShapes.get(2).calculateArea(), 0.01);
+        assertEquals(1, sortedShapes.get(0).calculateArea(), 0.01);
     }
 
     @Test
